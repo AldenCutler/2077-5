@@ -1,0 +1,51 @@
+<title>2077-5</title>
+<style>
+canvas{
+  background:tomato;
+  margin:auto;
+  position: absolute;
+  top:20;
+  left:0;
+  right:0;
+  border-style:ridge;
+}
+</style>
+
+<body translate="no" >
+  <canvas id="myCanvas" width="250px" height="250px">Your browser doesn't support canvas.</canvas>
+  
+
+<script id="rendered-js" >
+
+console.clear;
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+function updateTime() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  var d = new Date();
+  
+  seconds = d.getSeconds();
+  ctx.font = "35px Cambria";
+  ctx.fillText(seconds, 175, 45);
+  ctx.fillRect(175, 200, 40, seconds*-2.4);
+  
+  minutes = d.getMinutes();
+  ctx.font = "35px Cambria";
+  ctx.fillText(minutes,100,45);
+  ctx.fillRect(100, 200, 40, minutes*-2.4);
+  
+  hours = d.getHours();
+  hours = ((hours+11) % 12 + 1)
+  ctx.font = "35px Cambria";
+  ctx.fillText(hours,25,45);
+  ctx.fillRect(25, 200, 40, hours*-12);    
+  }
+
+updateTime();
+setInterval(updateTime,1000)
+
+</script>
+</body>
+</html>
+ 
